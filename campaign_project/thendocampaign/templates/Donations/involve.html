@@ -1,0 +1,52 @@
+{% extends 'Partial/base.html' %}
+
+{% block content %}
+<section id="get-involved-hero" style="padding: 80px 0; background-color: #f1f1f1;">
+ <!-- Back Button -->
+    <a href="{% url 'homepage' %}" style="display: inline-block; margin-bottom: 20px; text-decoration: none; color: #27AE60; font-weight: bold;">
+      &larr; Back
+    </a>
+    <div class="container" style="text-align: center;">
+        <h1 style="font-size: 3rem; color: #004d40;">Get Involved</h1>
+        
+        <p style="font-size: 1.5rem; color: #555;">Make a difference in your community by supporting our cause.</p>
+    </div>
+</section>
+
+<section id="ways-to-involve" style="padding: 60px 0;">
+    <div class="container">
+        <div class="row">
+            <!-- Donate Section -->
+              <div class="container" style="text-align: center;">
+                <div class="involve-box" style="border: 1px solid #ddd; padding: 20px; border-radius: 10px;">
+                    <i class="fas fa-donate" style="font-size: 3rem; color: #27AE60;"></i>
+                    <h3 style="margin-top: 20px; color: #004d40;">Donate</h3>
+                    <p>Support our cause by making a donation. Every contribution helps us get closer to our goals.</p>
+                    <a href="{% url 'donate' %}" class="btn btn-primary" style="background-color: #27AE60; color: white; padding: 10px 30px; border-radius: 50px;">Donate Now</a>
+                </div>
+            </div>
+
+            
+</section>
+
+<section id="stay-updated" style="padding: 60px 0; background-color: #f9f9f9;">
+    <div class="container" style="text-align: center;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: #004d40;">Stay Updated</h2>
+   
+        <p style="font-size: 1.2rem; color: #555;">Subscribe to our newsletter to receive updates about our work and how you can help.</p>
+        <form action="{% url 'signup' %}" method="post" style="max-width: 500px; margin: 0 auto;">
+         {% include 'Home/messages.html' %}
+            {% csrf_token %}
+            <div class="input-group" style="margin-top: 20px;">
+                <input type="email" name="email" placeholder="Your email address" style="padding: 15px; width: 100%; border: 1px solid #ddd; border-radius: 50px 0 0 50px;">
+                <button type="submit" class="btn btn-primary" style="background-color: #27AE60; color: white; border-radius: 0 50px 50px 0; padding: 15px 30px;">Subscribe</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+ <!-- Back Button -->
+    <a href="{% url 'homepage' %}" style="display: inline-block; margin-bottom: 20px; text-decoration: none; color: #27AE60; font-weight: bold;">
+      &larr; Back
+    </a>
+{% endblock %}

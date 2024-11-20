@@ -1,0 +1,174 @@
+{% extends 'Partial/base.html' %}
+{% load static %}
+
+{% block title %}Home - Thedo Malima Campaign{% endblock %}
+
+{% block header %}
+<!-- Navigation Bar -->
+
+<!-- Hero Section -->
+<section id="hero-section" style="padding: 100px 0; background: linear-gradient(135deg, #FF6F61 0%, #FF6F61 50%, #FFAB91 50%, #FFAB91 100%), url('{% static 'img/hero-background.jpg' %}'); background-size: cover; background-position: center; color: white; text-align: center; position: relative;">
+    <div class="container" style="position: relative; z-index: 2;">
+        <img src="{% static 'img/donald.JPG' %}" alt="Thedo Malina" style="border-radius: 50%; width: 200px; height: 200px; object-fit: cover; border: 5px solid white; margin-bottom: 20px;">
+        <h1 style="font-size: 4rem; font-weight: 900; margin-bottom: 10px;">Thendo Malima</h1>
+        <p style="font-size: 1.6rem; margin-bottom: 20px;">Leading South Africa Towards a Brighter Future</p>
+        <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto;">Thedo Malima is focused on sustainable development, education, and social equity. Join us in driving change for a more inclusive and prosperous South Africa.</p>
+        <div style="margin-top: 30px;">
+            <a href="{% url 'donate' %}" class="cta-button" style="background-color: #FF6F61; color: white; padding: 15px 30px; margin-right: 10px; border-radius: 50px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; text-decoration: none;">Donate Now</a>
+            <a href="{% url 'signup' %}" class="cta-button" style="background-color: #006FBB; color: white; padding: 15px 30px; margin-right: 10px; border-radius: 50px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; text-decoration: none;">Sign Up for Newsletter</a>
+            <a href="{% url 'get_involve' %}" class="cta-button" style="background-color: #27AE60; color: white; padding: 15px 30px; border-radius: 50px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; text-decoration: none;">Get Involved</a>
+         
+        </div>
+    </div>
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 1;"></div>
+</section>
+{% endblock %}
+
+{% block content %}
+<!-- Features Section -->
+<section id="features-section" style="padding: 80px 0; background: linear-gradient(135deg, #E0F2F1 0%, #B2DFDB 100%);">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; text-align: center;">
+        <h2 style="font-size: 3.5rem; margin-bottom: 60px; color: #00796B; font-weight: bold;">Our Core Values</h2>
+        <div class="features-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+            <div class="feature-box" style="background: #ffffff; padding: 30px; box-shadow: 0 6px 20px rgba(0,0,0,0.1); border-radius: 15px; transition: transform 0.3s, box-shadow 0.3s;">
+                <img src="{% static 'img/version.jpeg' %}" alt="Our Vision" style="width: 100%; height: 160px; object-fit: cover; border-radius: 15px;">
+                <h3 style="font-size: 2rem; margin-top: 20px; color: #004d40; font-weight: 600;">Our Vision</h3>
+                <p style="font-size: 1.1rem; color: #004d40; line-height: 1.6;">Building a South Africa that fosters equality and opportunity for all. A nation where every citizen thrives and prospers.</p>
+            </div>
+            <div class="feature-box" style="background: #ffffff; padding: 30px; box-shadow: 0 6px 20px rgba(0,0,0,0.1); border-radius: 15px; transition: transform 0.3s, box-shadow 0.3s;">
+                <img src="{% static 'img/involve.png' %}" alt="Get Involved" style="width: 100%; height: 160px; object-fit: cover; border-radius: 15px;">
+                <h3 style="font-size: 2rem; margin-top: 20px; color: #004d40; font-weight: 600;">Get Involved</h3>
+                <p style="font-size: 1.1rem; color: #004d40; line-height: 1.6;">Become part of our movement. Volunteer, advocate, and spread the word to help us build a stronger future for South Africa.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- About Us Section -->
+<section id="about-us-section" style="padding: 80px 0; background-color: #fff; border-top: 5px solid #00796B;">
+    <div class="container" style="max-width: 1000px; margin: 0 auto; text-align: center;">
+        <h2 style="font-size: 3rem; margin-bottom: 40px; color: #004d40;">About Us</h2>
+        <p style="font-size: 1.2rem; color: #004d40; line-height: 1.8;">Thedo Malima’s campaign is dedicated to building a brighter future for South Africa. We are focused on policies that prioritize education, healthcare, economic growth, and sustainable development. Our team believes in fostering inclusivity and social equity, ensuring that every South African has the opportunity to thrive.</p>
+    </div>
+</section>
+
+<!-- News Section -->
+<section id="news-section" style="padding: 80px 0; background-color: #fafafa;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="font-size: 3rem; margin-bottom: 50px; text-align: center; color: #004d40;">Latest News</h2>
+        <div class="news-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+            <!-- News 1 -->
+            <div class="news-card" style="background-color: #ffffff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <img src="{% static 'img/camp1.JPG' %}" alt="Campaign Launch" style="width: 100%; height: 180px; object-fit: cover; border-radius: 10px;">
+                <h3 style="margin-top: 15px; font-size: 1.6rem; color: #00796B;">Campaign Launch</h3>
+                <p style="color: #333;">Thedo Malima’s campaign officially kicks off with a rally in Johannesburg. Thousands gather in support of a new vision for South Africa.</p>
+                <a href="#" style="color: #00796B; text-decoration: none; font-weight: bold;">Read More</a>
+            </div>
+            <!-- News 2 -->
+            <div class="news-card" style="background-color: #ffffff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <img src="{% static 'img/camp3.png' %}" alt="Education Reform" style="width: 100%; height: 180px; object-fit: cover; border-radius: 10px;">
+                <h3 style="margin-top: 15px; font-size: 1.6rem; color: #00796B;">Education Reform</h3>
+                <p style="color: #333;">Thedo MaliMa introduces a new education policy aimed at improving school infrastructure and teacher training across the nation.</p>
+                <a href="#" style="color: #00796B; text-decoration: none; font-weight: bold;">Read More</a>
+            </div>
+            <!-- News 3 -->
+            <div class="news-card" style="background-color: #ffffff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <img src="{% static 'img/camp1.JPG' %}" alt="Healthcare Initiative" style="width: 100%; height: 180px; object-fit: cover; border-radius: 10px;">
+                <h3 style="margin-top: 15px; font-size: 1.6rem; color: #00796B;">Healthcare Initiative</h3>
+                <p style="color: #333;">Announcing a comprehensive healthcare initiative focused on expanding access to medical services in rural areas.</p>
+                <a href="#" style="color: #00796B; text-decoration: none; font-weight: bold;">Read More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact-section" style="padding: 80px 0; background-color: #ffffff;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; text-align: center;">
+        <h2 style="font-size: 3rem; margin-bottom: 40px; color: #004d40;">Get in Touch</h2>
+        {% include 'Home/messages.html' %}
+        <p style="font-size: 1.2rem; color: #333; margin-bottom: 40px;">We would love to hear from you. If you have any questions, feedback, or want to get involved, please reach out to us.</p>
+        <form action="{% url 'homepage' %}" method="post" style="max-width: 800px; margin: 0 auto;">
+            {% csrf_token %}
+            <div style="margin-bottom: 20px;">
+                <input type="text" name="name" placeholder="Your Name" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem;" required>
+            </div>
+            <div style="margin-bottom: 20px;">
+                <input type="email" name="email" placeholder="Your Email" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem;" required>
+            </div>
+            <div style="margin-bottom: 20px;">
+                <textarea name="message" rows="5" placeholder="Your Message" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem;" required></textarea>
+            </div>
+            <button type="submit" style="background-color: #27AE60; color: white; padding: 15px 30px; border: none; border-radius: 50px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; cursor: pointer;">Send Message</button>
+        </form>
+    </div>
+</section>
+>
+
+<!-- Events Section -->
+<section id="events-section" style="padding: 40px 0; background-color: #f4f4f4;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; text-align: center;">
+        <h2 style="font-size: 2rem; margin-bottom: 40px; color: #333;">Upcoming Events</h2>
+        <div class="events-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+            <!-- Event 1 -->
+            <div class="event-card" style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                <img src="{% static 'img/event1.jpg' %}" alt="Community Outreach" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px;">
+                <h3 style="margin-top: 15px; font-size: 1.4rem; color: #FF6F61;">Community Outreach</h3>
+                <p style="color: #666; font-size: 0.9rem;">Join us for a community outreach program aimed at connecting with local residents and addressing their concerns.</p>
+                <p style="color: #666; font-weight: bold; font-size: 0.9rem;">Date: October 10, 2024</p>
+            </div>
+            <!-- Event 2 -->
+            <div class="event-card" style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                <img src="{% static 'img/event2.jpg' %}" alt="Town Hall Meeting" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px;">
+                <h3 style="margin-top: 15px; font-size: 1.4rem; color: #FF6F61;">Town Hall Meeting</h3>
+                <p style="color: #666; font-size: 0.9rem;">Participate in our town hall meeting to discuss upcoming policies and share your views on important issues.</p>
+                <p style="color: #666; font-weight: bold; font-size: 0.9rem;">Date: November 5, 2024</p>
+            </div>
+            <!-- Event 3 -->
+            <div class="event-card" style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                <img src="{% static 'img/event3.png' %}" alt="Charity Gala" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px;">
+                <h3 style="margin-top: 15px; font-size: 1.4rem; color: #FF6F61;">Charity Gala</h3>
+                <p style="color: #666; font-size: 0.9rem;">Attend our charity gala to support local initiatives and celebrate our achievements with the community.</p>
+                <p style="color: #666; font-weight: bold; font-size: 0.9rem;">Date: December 15, 2024</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% comment %} <!-- News Section -->
+<section id="news-section" style="padding: 80px 0; background-color: #fafafa;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="font-size: 3rem; margin-bottom: 50px; text-align: center; color: #004d40;">Latest News</h2>
+        <div class="news-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+            {% for news in latest_news %}
+            <div class="news-card" style="background-color: #ffffff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <img src="{{ news.image.url }}" alt="{{ news.title }}" style="width: 100%; height: 180px; object-fit: cover; border-radius: 10px;">
+                <h3 style="margin-top: 15px; font-size: 1.6rem; color: #00796B;">{{ news.title }}</h3>
+                <p style="color: #333;">{{ news.summary }}</p>
+                <a href="#" style="color: #00796B; text-decoration: none; font-weight: bold;">Read More</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section> {% endcomment %}
+
+{% comment %} <!-- Events Section -->
+<section id="events-section" style="padding: 40px 0; background-color: #f4f4f4;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; text-align: center;">
+        <h2 style="font-size: 2rem; margin-bottom: 40px; color: #333;">Upcoming Events</h2>
+        <div class="events-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+            {% for event in upcoming_events %}
+            <div class="event-card" style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                <img src="{{ event.image.url }}" alt="{{ event.title }}" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px;">
+                <h3 style="margin-top: 15px; font-size: 1.4rem; color: #FF6F61;">{{ event.title }}</h3>
+                <p style="color: #666; font-size: 0.9rem;">{{ event.description }}</p>
+                <p style="color: #666; font-weight: bold; font-size: 0.9rem;">Date: {{ event.date }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section> {% endcomment %}
+
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'Partial/base.html' %}
+{% load static %}
+
+{% block content %}
+  <!-- Newsletter Subscription Section -->
+  <section id="newsletter-section" style="padding: 80px 0; background-color: #ffffff;">
+    <div class="container" style="max-width: 800px; margin: 0 auto; text-align: center;">
+   
+      <h2 style="font-size: 3rem; margin-bottom: 40px; color: #004d40;">Sign Up for Our Newsletter</h2>
+       <!-- Back Button -->
+    <a href="{% url 'homepage' %}" style="display: inline-block; margin-bottom: 20px; text-decoration: none; color: #27AE60; font-weight: bold;">
+      &larr; Back
+    </a>
+       
+      <p style="font-size: 1.2rem; color: #333; margin-bottom: 40px;">Stay updated with the latest news, events, and offers by subscribing to our newsletter.</p>
+      {% include 'Home/messages.html' %}
+      <form method="post" style="max-width: 600px; margin: 0 auto;">
+        {% csrf_token %}
+        <div style="margin-bottom: 20px;">
+          <input type="text" id="name" name="name" placeholder="Your Name" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem;" required>
+        </div>
+        <div style="margin-bottom: 20px;">
+          <input type="email" id="email" name="email" placeholder="Your Email" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem;" required>
+        </div>
+        <button type="submit" style="background-color: #27AE60; color: white; padding: 15px 30px; border: none; border-radius: 50px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; cursor: pointer;">Subscribe</button>
+      </form>
+    </div>
+  </section>
+{% endblock %}

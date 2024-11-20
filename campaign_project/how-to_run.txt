@@ -1,0 +1,16 @@
+1. clone
+2.. Set Up a Virtual Environment:
+  python -m venv venv
+   source venv/bin/activate
+
+3. intall dependices
+   pip install -r requirements.txt
+
+4. navigate to project directory
+5. Apply Migrations: 
+  python manage.py makemigrations
+  python manage.py migrate
+  Create a Superuser
+
+6. Run the Development Server
+  python manage.py runserver

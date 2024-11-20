@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Thendo MaliMa{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <!-- Bootstrap CSS -->
+
+
+</head>
+<body>
+ <!-- Navbar -->
+<nav class="navbar" style="background-color: #123; padding: 10px 0; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+  <div class="container" style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+    <a href="#" class="navbar-brand" style="color: white; font-size: 1.8rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px;">
+      
+    </a>
+     <ul class="navbar-nav" style="list-style: none; display: flex; margin: 0; padding: 0;">
+      <li class="nav-item" style="margin-right: 20px;">
+        <a href="{% url 'homepage' %}" class="nav-link" style="color: white; text-decoration: none; font-size: 1.2rem; position: relative;">
+          Home
+        </a>
+      </li>
+      <li class="nav-item" style="margin-right: 20px;">
+        <a href="#features-section" class="nav-link" style="color: white; text-decoration: none; font-size: 1.2rem; position: relative;">
+          What We Stand For
+        </a>
+      </li>
+      <li class="nav-item" style="margin-right: 20px;">
+        <a href="#about-us-section" class="nav-link" style="color: white; text-decoration: none; font-size: 1.2rem; position: relative;">
+          About Us
+        </a>
+      </li>
+      <li class="nav-item" style="margin-right: 20px;">
+        <a href="#news-section" class="nav-link" style="color: white; text-decoration: none; font-size: 1.2rem; position: relative;">
+          Latest News
+        </a>
+      </li>
+      <li class="nav-item" style="margin-right: 20px;">
+        <a href="#events-section" class="nav-link" style="color: white; text-decoration: none; font-size: 1.2rem; position: relative;">
+          Upcoming Events
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#contact-section" class="nav-link" style="color: white; text-decoration: none; font-size: 1.2rem; position: relative;">
+          Contact Us
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Styles -->
+<style>
+  .navbar-nav .nav-link {
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+
+  .navbar-nav .nav-link:hover {
+    color: #27AE60; /* Change to green on hover */
+    transform: translateY(-3px); /* Lift on hover */
+  }
+
+  /* Add underline effect on hover */
+  .navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    background: #27AE60; /* Green underline */
+    transition: width 0.3s;
+  }
+
+  .navbar-nav .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .navbar-nav {
+      flex-direction: column;
+    }
+
+    .navbar-nav .nav-item {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+
+    <header>
+        {% block header %}
+        <!-- Default header content can be overridden in child templates -->
+        {% endblock %}
+    </header>
+    <div class="container">
+        {% block content %}
+        <!-- Page-specific content will go here -->
+        {% endblock %}
+    </div>
+  <footer class="text-center">
+  <p>&copy; 2024 Thendo Malima Campaign. All rights reserved.</p>
+</footer>
+
+<style>
+  footer {
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: center; /
+  }
+</style>
+</body>
+</html>
