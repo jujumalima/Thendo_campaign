@@ -1,17 +1,37 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
-from django.contrib.auth import login
+from django.contrib.auth import login, authenticate
 from django.utils.translation import gettext as _
 from .models import NewsletterSubscriber
-from django.contrib.auth import authenticate, login
 
 
 def get_involved(request):
-  
+    """
+    Renders the 'Get Involved' page.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: The rendered 'Get Involved' template.
+    """
     return render(request, 'Donations/involve.html')
 
+
 def signup_newsletter(request):
+    """
+    Handles newsletter signup requests.
+
+    If the request method is POST, captures the user's name and email
+    and saves them as a subscriber. Provides feedback via messages.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: Redirects to the appropriate page or renders the signup page.
+    """
     if request.method == 'POST':
         name = request.POST.get('name')
         email = request.POST.get('email')
@@ -28,10 +48,33 @@ def signup_newsletter(request):
 
     return render(request, 'newsletter/signup.html')
 
+
 def donate(request):
+    """
+    Renders the donation page.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: The rendered donation page.
+    """
     return render(request, 'Donations/donate.html')
 
+
 def login_view(request):
+    """
+    Handles user login requests.
+
+    Authenticates the user and logs them in if credentials are valid.
+    Provides feedback via messages.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: Redirects to the home page or renders the login page.
+    """
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -40,58 +83,82 @@ def login_view(request):
         if user is not None:
             login(request, user)
             messages.success(request, _('Login successful!'))
-            return redirect('Donate_home')  
+            return redirect('Donate_home')
         else:
             messages.error(request, _('Invalid username or password.'))
     return render(request, 'Donations/login.html')
 
 
 def register_view(request):
+    """
+    Handles user registration requests.
+
+    Validates user input, creates a new user, and logs them in.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: Redirects to the login page or renders the registration page.
+    """
     if request.method == 'POST':
         username = request.POST.get('username')
         email = request.POST.get('email')
         password = request.POST.get('password')
 
-        #validation
         if not username or not email or not password:
             messages.error(request, _('All fields are required.'))
             return redirect('register')
 
-        # Check if the username already exists
         if User.objects.filter(username=username).exists():
             messages.warning(request, _('Username already exists.'))
             return redirect('register')
 
-        # Check if the email already exists
         if User.objects.filter(email=email).exists():
             messages.warning(request, _('Email already registered.'))
             return redirect('register')
 
-        # Create a new user
         user = User.objects.create_user(username=username, email=email, password=password)
         user.save()
 
-        # Log the user in
         login(request, user)
         messages.success(request, _('Registration successful! You are now logged in.'))
-        return redirect('login') 
+        return redirect('login')
 
-  
-  
     return render(request, 'Donations/register.html')
 
 
 def thank_you_view(request):
-  
+    """
+    Renders the 'Thank You' page after newsletter signup.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: The rendered 'Thank You' template.
+    """
     return render(request, 'newsletter/thank_you.html')
 
+
 def Donate_home(request):
+    """
+    Handles donation requests.
+
+    Validates input and stores donation data in the session for use
+    on the thank-you page.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: Redirects to the thank-you page or renders the donation form.
+    """
     if request.method == 'POST':
         amount = request.POST.get('amount')
         name = request.POST.get('name')
         email = request.POST.get('email')
 
-        # Basic validation
         if not amount or not name or not email:
             messages.error(request, 'All fields are required.')
             return redirect('donate_home')
@@ -105,23 +172,30 @@ def Donate_home(request):
             messages.error(request, 'Please enter a valid number for the donation amount.')
             return redirect('donate_home')
 
-        # Store data in the session
         request.session['donation_name'] = name
         request.session['donation_amount'] = amount
 
         messages.success(request, 'Thank you for your donation!')
-        return redirect('thank_donation')  # Redirect to the thank you page
+        return redirect('thank_donation')
 
     return render(request, 'Donations/donate_home.html')
 
 
-
 def thank_donation(request):
-    
-    name = request.session.get('donation_name', 'Friend')  
-    amount = request.session.get('donation_amount', '0.00')  
+    """
+    Renders the 'Thank You for Donation' page.
 
-    # Clear the session values after using them
+    Retrieves and clears donation details from the session.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: The rendered thank-you page with donation details.
+    """
+    name = request.session.get('donation_name', 'Friend')
+    amount = request.session.get('donation_amount', '0.00')
+
     if 'donation_name' in request.session:
         del request.session['donation_name']
     if 'donation_amount' in request.session:
@@ -131,7 +205,3 @@ def thank_donation(request):
         'name': name,
         'amount': amount,
     })
-
-  
-
-
