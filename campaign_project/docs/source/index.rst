@@ -38,6 +38,7 @@ To get started with the Thendo Campaign Website, follow the instructions below.
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+   :modules
 
  .. automodule:: campaign
    :members:
