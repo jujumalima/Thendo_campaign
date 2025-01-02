@@ -60,25 +60,6 @@ To get started with this project, follow the steps below.
 - **Newsletter Signup**: Subscribe to the newsletter.
 - **Thank You Pages**: After donating or subscribing, you'll be redirected to a thank-you page.
 
-## Docker
+.
 
-To run the project in a Docker container, follow these steps:
 
-1. Build the Docker image:
-    ```
-    docker build -t django-project .
-    ```
-
-2. Run the container:
-    ```
-    docker run -p 8000:8000 django-project
-    ```
-
-3. Visit `http://127.0.0.1:8000/` in your browser.
-
-## Testing
-
-To run tests for the application, use the following command:
-
-```bash
-python manage.py test
